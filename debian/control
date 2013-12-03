@@ -1,16 +1,16 @@
 Source: libplack-middleware-cache-perl
 Section: perl
 Priority: optional
-Maintainer: Piotr Roszatycki <dexter@debian.org>
-Build-Depends: debhelper (>= 9.20120312)
-Build-Depends-Indep: perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: Piotr Roszatycki <dexter@debian.org>
+Build-Depends: debhelper (>= 9)
+Build-Depends-Indep: libplack-app-proxy-perl
 Standards-Version: 3.9.5
 Homepage: https://metacpan.org/release/Plack-Middleware-Cache
 
 Package: libplack-middleware-cache-perl
 Architecture: all
 Depends: ${misc:Depends}, ${perl:Depends}
-Description: Use Cached Responses of Certain URIs
- (no description was found)
- .
- This description was automagically extracted from the module by dh-make-perl.
+Description: Plack::Middleware::Cache - Plack middleware that cache responses
+ This middleware allows you to cache expensive and non-changing responses from
+ URIs that match a list of regular expression patterns.
