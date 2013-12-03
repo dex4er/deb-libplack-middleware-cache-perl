@@ -3,12 +3,16 @@ before_install:
   - sudo apt-get update -qq
 install:
   - sudo apt-get install -qq git-buildpackage
-  - sudo apt-get install -qq debhelper libplack-app-proxy-perl perl
+  - sudo apt-get install -qq debhelper libplack-perl perl
 before_script:
   - git fetch origin +upstream:upstream
   - git fetch origin +pristine-tar:pristine-tar
-script: git-buildpackage --git-builder="debuild --no-lintian -i'^\.git/|^\.gitignore$|^\.travis.yml$|^\.gbp\.conf$' -I" -uc -us && debc && lintian --dont-check-part standards-version --fail-on-warnings --color always --info ../*.changes
+script: git-buildpackage --git-builder="debuild --no-lintian -i'^\.git/|^\.gitignore$|^\.travis.yml$|^\.gbp\.conf$' -I" -uc -us
+after_success:
+  - debc
+  - lintian --dont-check-part standards-version --fail-on-warnings --color always --info ../*.changes
+  - sudo debi
 branches:
   only:
     - master
-    - saucy
+    - precise
