@@ -1,5 +1,5 @@
 libplack-middleware-cache-perl (0.12-1) unstable; urgency=low
 
-  * Initial Release.
+  * Initial Release. Closes: #731232.
 
  -- Piotr Roszatycki <dexter@debian.org>  Tue, 3 Dec 2013 12:20:43 +0100
